@@ -125,6 +125,8 @@ OPTIONS.block_based = False
 OPTIONS.updater_binary = None
 OPTIONS.oem_source = None
 OPTIONS.fallback_to_full = True
+OPTIONS.override_device = 'auto'
+OPTIONS.backuptool = True
 
 def MostPopularKey(d, default):
   """Given a dict, return the key corresponding to the largest
@@ -544,15 +546,17 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
 
   device_specific.FullOTA_InstallBegin()
 
+  if OPTIONS.backuptool:
+    script.Mount("/system")
+    script.RunBackup("backup")
+    script.Unmount("/system")
+
   system_progress = 0.75
 
   if OPTIONS.wipe_user_data:
     system_progress -= 0.1
   if HasVendorPartition(input_zip):
     system_progress -= 0.1
-
-  if "selinux_fc" in OPTIONS.info_dict:
-    WritePolicyConfig(OPTIONS.info_dict["selinux_fc"], output_zip)
 
   script.Print("*********************************************");
   script.Print("*         )               (                 *");
@@ -566,6 +570,9 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
   script.Print("*           |_|                  |_|        *");
   script.Print("*                                           *");
   script.Print("*********************************************"); 
+
+  if "selinux_fc" in OPTIONS.info_dict:
+    WritePolicyConfig(OPTIONS.info_dict["selinux_fc"], output_zip)
 
   recovery_mount_options = OPTIONS.info_dict.get("recovery_mount_options")
 
@@ -626,6 +633,10 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
 
   common.CheckSize(boot_img.data, "boot.img", OPTIONS.info_dict)
   common.ZipWriteStr(output_zip, "boot.img", boot_img.data)
+
+  if OPTIONS.backuptool:
+    script.ShowProgress(0.05, 5)
+    script.RunBackup("restore")
 
   script.ShowProgress(0.05, 5)
   script.WriteRawImage("/boot", "boot.img")
