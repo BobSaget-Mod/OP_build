@@ -912,7 +912,7 @@ INTERNAL_SYSTEMIMAGE_FILES := $(filter $(TARGET_OUT)/%, \
 
 systemimage-squisher: $(INTERNAL_SYSTEMIMAGE_FILES)
 	@echo -e "Optimizing PNGs to make you ROM more awesome!"
-	$(hide) APKCERTS=$(APKCERTS_FILE) ./vendor/optistock/tools/squisher
+	$(hide) ./vendor/optistock/tools/squisher
 
 .PHONY: systemimage-squisher
 
