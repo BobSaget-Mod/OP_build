@@ -104,13 +104,9 @@ $(combo_2nd_arch_prefix)TARGET_thumb_CFLAGS :=  -mthumb \
                         -fno-tree-vectorize \
                         -fno-inline-functions \
                         -fno-unswitch-loops \
-                        -Wstrict-aliasing=3 \
-                        -Werror=strict-aliasing \
                         -fgcse-after-reload \
                         -fno-ipa-cp-clone \
                         -fno-vect-cost-model \
-                        -Wno-error=unused-parameter \
-                        -Wno-error=unused-but-set-variable \
 			-DNDEBUG \
 			-funsafe-loop-optimizations \
 			-fsection-anchors \
@@ -128,6 +124,8 @@ $(combo_2nd_arch_prefix)TARGET_thumb_CFLAGS :=  -mthumb \
 			-fweb \
 			-ftracer \
 			-Wno-error=maybe-uninitialized \
+                        -Wno-error=unused-parameter \
+                        -Wno-error=unused-but-set-variable \
 			$(call-cc-cpp-option,-Qunused-arguments)
 
 # Set FORCE_ARM_DEBUGGING to "true" in your buildspec.mk
