@@ -201,13 +201,33 @@ $(combo_2nd_arch_prefix)TARGET_GLOBAL_CPPFLAGS += \
 
 # More flags/options can be added here
 $(combo_2nd_arch_prefix)TARGET_RELEASE_CFLAGS := \
+			-O3 \
 			-DNDEBUG \
                         -pipe \
 			-g \
 			-Wstrict-aliasing=2 \
 			-fgcse-after-reload \
 			-frerun-cse-after-loop \
-			-frename-registers
+			-frename-registers \
+			-fno-ipa-cp-clone \
+			-fno-vect-cost-model \
+			-Wno-error=unused-parameter \
+			-Wno-error=unused-but-set-variable \
+			-fno-strict-aliasing \
+			-funsafe-loop-optimizations \
+			-fsection-anchors \
+			-fivopts \
+			-ftree-loop-im \
+			-ftree-loop-ivcanon \
+			-ffunction-sections \
+			-fdata-sections \
+			-funswitch-loops \
+			-fomit-frame-pointer \
+			-fgcse-sm \
+			-fgcse-las \
+			-fweb \
+			-ftracer \
+			-Wno-error=maybe-uninitialized
 
 libc_root := bionic/libc
 libm_root := bionic/libm
