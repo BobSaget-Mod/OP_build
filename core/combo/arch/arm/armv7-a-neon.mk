@@ -22,32 +22,7 @@ endif
 
 arch_variant_cflags += \
     -mfloat-abi=softfp \
-    -mfpu=neon \
-    -DHARDFLOAT \
-    -DSK_HARDWARE_FLOAT \
-    -DNDEBUG \
-    -mcpu=cortex-a15 \
-    -mtune=cortex-a15 \
-    -fira-loop-pressure \
-    -mvectorize-with-neon-quad \
-    -fforce-addr \
-    -funsafe-loop-optimizations \
-    -funroll-loops \
-    -ftree-loop-distribution \
-    -fsection-anchors \
-    -fivopts \
-    -ftree-loop-im \
-    -ftree-loop-ivcanon \
-    -ffunction-sections \
-    -fgcse-las \
-    -fgcse-sm \
-    -fweb \
-    -ffp-contract=fast \
-    -fgraphite-identity \
-    -ftree-loop-linear \
-    -floop-interchange \
-    -floop-flatten \
-    -Wno-unused-parameter \
-    -Wno-unused-value \
-    -Wno-unused-function \
-    -pipe
+    -mfpu=neon
+
+arch_variant_ldflags := \
+	-Wl,--fix-cortex-a8
