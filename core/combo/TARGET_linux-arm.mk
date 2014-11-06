@@ -127,7 +127,8 @@ $(combo_2nd_arch_prefix)TARGET_thumb_CFLAGS :=  -mthumb \
 			-fgcse-las \
 			-fweb \
 			-ftracer \
-			-Wno-error=maybe-uninitialized
+			-Wno-error=maybe-uninitialized \
+			$(call-cc-cpp-option,-Qunused-arguments)
 
 # Set FORCE_ARM_DEBUGGING to "true" in your buildspec.mk
 # or in your environment to force a full arm build, even for
