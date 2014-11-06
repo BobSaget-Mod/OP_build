@@ -191,7 +191,6 @@ $(combo_2nd_arch_prefix)TARGET_GLOBAL_CPPFLAGS += \
 			-ffunction-sections \
 			-fdata-sections \
 			-funswitch-loops \
-			-frename-registers \
 			-pipe \
 			-fomit-frame-pointer \
 			-ftracer \
