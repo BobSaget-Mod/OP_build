@@ -67,11 +67,33 @@ $(combo_2nd_arch_prefix)TARGET_STRIP := $($(combo_2nd_arch_prefix)TARGET_TOOLS_P
 
 $(combo_2nd_arch_prefix)TARGET_NO_UNDEFINED_LDFLAGS := -Wl,--no-undefined
 
-$(combo_2nd_arch_prefix)TARGET_arm_CFLAGS :=    -O2 \
+$(combo_2nd_arch_prefix)TARGET_arm_CFLAGS :=    -O3 \
                         -pipe \
+			-DNDEBUG \
                         -fomit-frame-pointer \
                         -fstrict-aliasing    \
-                        -funswitch-loops
+                        -funswitch-loops \
+                        -fno-tree-vectorize \
+                        -fno-inline-functions \
+                        -fgcse-after-reload \
+                        -fno-ipa-cp-clone \
+                        -fno-vect-cost-model \
+			-funsafe-loop-optimizations \
+			-fsection-anchors \
+			-fivopts \
+			-ftree-loop-im \
+			-ftree-loop-ivcanon \
+			-ffunction-sections \
+			-fdata-sections \
+			-frename-registers \
+			-fomit-frame-pointer \
+			-fgcse-sm \
+			-fgcse-las \
+			-fweb \
+			-ftracer \
+			-Wno-error=unused-parameter \
+                        -Wno-error=unused-but-set-variable \
+			-Wno-error=maybe-uninitialized
 
 # Modules can choose to compile some source as thumb.
 $(combo_2nd_arch_prefix)TARGET_thumb_CFLAGS :=  -mthumb \
