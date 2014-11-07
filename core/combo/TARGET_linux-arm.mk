@@ -105,14 +105,25 @@ $(combo_2nd_arch_prefix)TARGET_thumb_CFLAGS :=  -mthumb \
                         -fno-inline-functions \
                         -fno-unswitch-loops \
                         -fgcse-after-reload \
+                        -fno-ipa-cp-clone \
+                        -fno-vect-cost-model \
+                        -Wno-error=unused-parameter \
+                        -Wno-error=unused-but-set-variable \
 			-DNDEBUG \
+			-funsafe-loop-optimizations \
+			-fsection-anchors \
 			-fivopts \
 			-fno-unroll-loops \
+			-ftree-loop-im \
+			-ftree-loop-ivcanon \
 			-ffunction-sections \
 			-fdata-sections \
 			-funswitch-loops \
 			-frename-registers \
 			-frerun-cse-after-loop \
+			-fgcse-sm \
+			-fgcse-las \
+			-fweb \
 			-ftracer \
 			-Wno-error=maybe-uninitialized \
                         -Wno-error=unused-parameter \
