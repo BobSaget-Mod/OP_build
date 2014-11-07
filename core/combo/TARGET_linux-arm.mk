@@ -187,12 +187,19 @@ $(combo_2nd_arch_prefix)TARGET_GLOBAL_CPPFLAGS += \
 			-fvisibility-inlines-hidden \
 			-O3 \
 			-DNDEBUG \
+			-funsafe-loop-optimizations \
+			-fsection-anchors \
 			-fivopts \
+			-ftree-loop-im \
+			-ftree-loop-ivcanon \
 			-ffunction-sections \
 			-fdata-sections \
 			-funswitch-loops \
 			-pipe \
 			-fomit-frame-pointer \
+			-fgcse-sm \
+			-fgcse-las \
+			-fweb \
 			-ftracer \
 			-Wno-error=unused-parameter \
 			-Wno-error=unused-but-set-variable \
