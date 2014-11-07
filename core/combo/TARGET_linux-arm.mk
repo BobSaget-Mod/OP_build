@@ -113,7 +113,6 @@ $(combo_2nd_arch_prefix)TARGET_thumb_CFLAGS :=  -mthumb \
 			-funsafe-loop-optimizations \
 			-fsection-anchors \
 			-fivopts \
-			-fno-unroll-loops \
 			-ftree-loop-im \
 			-ftree-loop-ivcanon \
 			-ffunction-sections \
