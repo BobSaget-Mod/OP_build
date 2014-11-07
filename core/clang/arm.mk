@@ -6,10 +6,6 @@ CLANG_CONFIG_arm_EXTRA_ASFLAGS := \
 CLANG_CONFIG_arm_EXTRA_CFLAGS := \
   -no-integrated-as
 
-ifneq (,$(filter krait,$(TARGET_$(combo_2nd_arch_prefix)CPU_VARIANT)))
-  CLANG_CONFIG_arm_EXTRA_CFLAGS += -mcpu=krait
-endif
-
 CLANG_CONFIG_arm_EXTRA_CPPFLAGS := \
   -no-integrated-as
 
