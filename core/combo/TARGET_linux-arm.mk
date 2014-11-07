@@ -73,6 +73,7 @@ $(combo_2nd_arch_prefix)TARGET_arm_CFLAGS :=    -O3 \
                         -fomit-frame-pointer \
                         -fstrict-aliasing    \
                         -funswitch-loops \
+                        -fno-tree-vectorize \
                         -fno-inline-functions \
                         -fgcse-after-reload \
                         -fno-ipa-cp-clone \
@@ -100,6 +101,7 @@ $(combo_2nd_arch_prefix)TARGET_thumb_CFLAGS :=  -mthumb \
                         -pipe \
                         -fomit-frame-pointer \
                         -fno-strict-aliasing \
+                        -fno-tree-vectorize \
                         -fno-inline-functions \
                         -fno-unswitch-loops \
                         -fgcse-after-reload \
@@ -111,6 +113,7 @@ $(combo_2nd_arch_prefix)TARGET_thumb_CFLAGS :=  -mthumb \
 			-funsafe-loop-optimizations \
 			-fsection-anchors \
 			-fivopts \
+			-fno-unroll-loops \
 			-ftree-loop-im \
 			-ftree-loop-ivcanon \
 			-ffunction-sections \
