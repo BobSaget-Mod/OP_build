@@ -97,6 +97,24 @@ else
   endif
 endif
 
+# Copyright (C) 2014 The SaberMod Project
+# Make sure root includes are available for host.
+
+GRAPHITE_FLAGS := -fgraphite -floop-flatten -floop-parallelize-all -ftree-loop-linear -floop-interchange -floop-strip-mine -floop-block
+
+ifdef LOCAL_CFLAGS
+LOCAL_CFLAGS += $(call cc-option,$(GRAPHITE_FLAGS))
+else
+LOCAL_CFLAGS := $(call cc-option,$(GRAPHITE_FLAGS))
+endif
+
+ifdef LOCAL_CPPFLAGS
+LOCAL_CFLAGS += $(call cpp-option,$(GRAPHITE_FLAGS))
+else
+LOCAL_CPPFLAGS := $(call cpp-option,$(GRAPHITE_FLAGS))
+endif
+####
+
 # The following LOCAL_ variables will be modified in this file.
 # Because the same LOCAL_ variables may be used to define modules for both 1st arch and 2nd arch,
 # we can't modify them in place.
