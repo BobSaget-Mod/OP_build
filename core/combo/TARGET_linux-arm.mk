@@ -100,10 +100,12 @@ $(combo_2nd_arch_prefix)TARGET_thumb_CFLAGS :=  -mthumb \
                         -O3 \
                         -pipe \
                         -fomit-frame-pointer \
-                        -fno-strict-aliasing \
+                        -fstrict-aliasing \
                         -fno-tree-vectorize \
                         -fno-inline-functions \
                         -fno-unswitch-loops \
+                        -Wstrict-aliasing=3 \
+                        -Werror=strict-aliasing \
                         -fgcse-after-reload \
                         -fno-ipa-cp-clone \
                         -fno-vect-cost-model \
@@ -213,7 +215,8 @@ $(combo_2nd_arch_prefix)TARGET_GLOBAL_CPPFLAGS += \
 			-ftracer \
 			-Wno-error=unused-parameter \
 			-Wno-error=unused-but-set-variable \
-			-Wno-error=maybe-uninitialized
+			-Wno-error=maybe-uninitialized \
+			-Wstrict-aliasing=3
 
 # More flags/options can be added here
 $(combo_2nd_arch_prefix)TARGET_RELEASE_CFLAGS := \
