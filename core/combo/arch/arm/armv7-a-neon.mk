@@ -27,13 +27,9 @@ endif
 endif
 endif
 
-OPTIMIZATIONS_GALORE := -DNDEBUG,-mcpu=cortex-a15,-mtune=cortex-a15,-fira-loop-pressure,-mvectorize-with-neon-quad,-fforce-addr,-funsafe-loop-optimizations,-funroll-loops,-ftree-loop-distribution,-fsection-anchors,-fivopts,-ftree-loop-im,-ftree-loop-ivcanon,-ffunction-sections,-fgcse-las,-fgcse-sm,-fweb,-ffp-contract=fast,-fgraphite,-floop-flatten,-floop-parallelize-all,-ftree-loop-linear,-floop-interchange,-floop-strip-mine,-floop-block,-Wno-unused-parameter,-Wno-unused-value,-Wno-unused-function,-pipe
-
 arch_variant_cflags += \
     -mfloat-abi=softfp \
     -mfpu=neon
-
-arch_variant_cflags := $(call cc-option,$(OPTIMIZATIONS_GALORE))
 
 arch_variant_ldflags := \
 	-Wl,--fix-cortex-a8
