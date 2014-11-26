@@ -99,6 +99,7 @@ $(combo_2nd_arch_prefix)TARGET_arm_CFLAGS :=    -O3 \
 $(combo_2nd_arch_prefix)TARGET_thumb_CFLAGS :=  -mthumb \
                         -O3 \
                         -pipe \
+			-DNDEBUG \
                         -fomit-frame-pointer \
                         -fstrict-aliasing \
                         -fno-tree-vectorize \
@@ -106,25 +107,9 @@ $(combo_2nd_arch_prefix)TARGET_thumb_CFLAGS :=  -mthumb \
                         -fno-unswitch-loops \
                         -Wstrict-aliasing=3 \
                         -Werror=strict-aliasing \
-                        -fgcse-after-reload \
-                        -fno-ipa-cp-clone \
-                        -fno-vect-cost-model \
-                        -Wno-error=unused-parameter \
-                        -Wno-error=unused-but-set-variable \
-			-DNDEBUG \
-			-funsafe-loop-optimizations \
-			-fsection-anchors \
 			-fivopts \
-			-ftree-loop-im \
-			-ftree-loop-ivcanon \
 			-ffunction-sections \
 			-fdata-sections \
-			-funswitch-loops \
-			-frename-registers \
-			-frerun-cse-after-loop \
-			-fgcse-sm \
-			-fgcse-las \
-			-fweb \
 			-ftracer \
 			-Wno-error=maybe-uninitialized \
                         -Wno-error=unused-parameter \
