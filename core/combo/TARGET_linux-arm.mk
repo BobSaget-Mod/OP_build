@@ -67,37 +67,10 @@ $(combo_2nd_arch_prefix)TARGET_STRIP := $($(combo_2nd_arch_prefix)TARGET_TOOLS_P
 
 $(combo_2nd_arch_prefix)TARGET_NO_UNDEFINED_LDFLAGS := -Wl,--no-undefined
 
-$(combo_2nd_arch_prefix)TARGET_arm_CFLAGS :=    -O3 \
-                        -pipe \
-			-DNDEBUG \
-                        -fomit-frame-pointer \
-                        -fstrict-aliasing    \
-                        -funswitch-loops \
-                        -fno-tree-vectorize \
-                        -fno-inline-functions \
-                        -fgcse-after-reload \
-                        -fno-ipa-cp-clone \
-                        -fno-vect-cost-model \
-			-funsafe-loop-optimizations \
-			-fsection-anchors \
-			-fivopts \
-			-ftree-loop-im \
-			-ftree-loop-ivcanon \
-			-ffunction-sections \
-			-fdata-sections \
-			-frename-registers \
-			-fomit-frame-pointer \
-			-fgcse-sm \
-			-fgcse-las \
-			-fweb \
-			-ftracer \
-			-Wno-error=unused-parameter \
-                        -Wno-error=unused-but-set-variable \
-			-Wno-error=maybe-uninitialized
+$(combo_2nd_arch_prefix)TARGET_arm_CFLAGS := -O3 -DNDEBUG -pipe -fomit-frame-pointer -funswitch-loops -fno-tree-vectorize -fno-inline-functions -fivopts -ffunction-sections -fdata-sections -frename-registers -fomit-frame-pointer -ftracer -Wno-unused-parameter -Wno-unused-but-set-variable -Wno-maybe-uninitialized $(call cc-option,$(-fira-loop-pressure,-fforce-addr,-funsafe-loop-optimizations,-funroll-loops,-ftree-loop-distribution,-fsection-anchors,-ftree-loop-im,-ftree-loop-ivcanon,-ffunction-sections,-fgcse-after-reload,-fgcse-las,-fgcse-sm,-fweb,-ffp-contract=fast,-fgraphite,-floop-flatten,-floop-parallelize-all,-ftree-loop-linear,-floop-interchange,-floop-strip-mine,-floop-block))
 
 # Modules can choose to compile some source as thumb.
-$(combo_2nd_arch_prefix)TARGET_thumb_CFLAGS :=  -mthumb -O3 -pipe -DNDEBUG -fomit-frame-pointer -fstrict-aliasing -fno-tree-vectorize -fno-inline-functions -fno-unswitch-loops -Wstrict-aliasing=3 -Werror=strict-aliasing -fivopts -ffunction-sections -fdata-sections -ftracer -Wno-error=maybe-uninitialized -Wno-error=unused-parameter -Wno-error=unused-but-set-variable -Wno-error=clobbered -Wno-error=strict-overflow 
-$(call cc-option,$(-funsafe-loop-optimizations,-funroll-loops,-ftree-loop-distribution,-fsection-anchors,-ftree-loop-im,-ftree-loop-ivcanon,-ffunction-sections,-frename-registers,-frerun-cse-after-loop,-fgcse-las,-fgcse-sm,-fweb,-ffp-contract=fast,-fgraphite,-floop-flatten,-floop-parallelize-all,-ftree-loop-linear,-floop-interchange,-floop-strip-mine,-floop-block))
+$(combo_2nd_arch_prefix)TARGET_thumb_CFLAGS :=  -mthumb -O3 -DNDEBUG -pipe -fomit-frame-pointer -fstrict-aliasing -fno-tree-vectorize -fno-inline-functions -fno-unswitch-loops -Wstrict-aliasing=3 -Werror=strict-aliasing -fivopts -ffunction-sections -fdata-sections -ftracer -Wno-unused-parameter -Wno-unused-but-set-variable -Wno-maybe-uninitialized -Wno-clobbered -Wno-strict-overflow $(call cc-option,$(-funsafe-loop-optimizations,-funroll-loops,-ftree-loop-distribution,-fsection-anchors,-ftree-loop-im,-ftree-loop-ivcanon,-ffunction-sections,-frename-registers,-frerun-cse-after-loop,-fgcse-las,-fgcse-sm,-fweb,-ffp-contract=fast,-fgraphite,-floop-flatten,-floop-parallelize-all,-ftree-loop-linear,-floop-interchange,-floop-strip-mine,-floop-block))
 
 # Set FORCE_ARM_DEBUGGING to "true" in your buildspec.mk
 # or in your environment to force a full arm build, even for
@@ -162,58 +135,10 @@ $(combo_2nd_arch_prefix)TARGET_GLOBAL_LDFLAGS += \
 
 $(combo_2nd_arch_prefix)TARGET_GLOBAL_CFLAGS += -mthumb-interwork
 
-$(combo_2nd_arch_prefix)TARGET_GLOBAL_CPPFLAGS += \
-			-fvisibility-inlines-hidden \
-			-O3 \
-			-DNDEBUG \
-			-funsafe-loop-optimizations \
-			-fsection-anchors \
-			-fivopts \
-			-ftree-loop-im \
-			-ftree-loop-ivcanon \
-			-ffunction-sections \
-			-fdata-sections \
-			-funswitch-loops \
-			-pipe \
-			-fomit-frame-pointer \
-			-fgcse-sm \
-			-fgcse-las \
-			-fweb \
-			-ftracer \
-			-Wno-error=unused-parameter \
-			-Wno-error=unused-but-set-variable \
-			-Wno-error=maybe-uninitialized \
-			-Wstrict-aliasing=3
+$(combo_2nd_arch_prefix)TARGET_GLOBAL_CPPFLAGS += -fvisibility-inlines-hidden -O3 -DNDEBUG -pipe -fivopts -ffunction-sections -fdata-sections -funswitch-loops -fomit-frame-pointer -ftracer -Wno-unused-parameter -Wno-unused-but-set-variable -Wno-maybe-uninitialized -Wstrict-aliasing=3 $(call cpp-option,$(-fira-loop-pressure,-fforce-addr,-funsafe-loop-optimizations,-funroll-loops,-ftree-loop-distribution,-fsection-anchors,-ftree-loop-im,-ftree-loop-ivcanon,-ffunction-sections,-fgcse-las,-fgcse-sm,-fweb,-ffp-contract=fast,-fgraphite,-floop-flatten,-floop-parallelize-all,-ftree-loop-linear,-floop-interchange,-floop-strip-mine,-floop-block))
 
 # More flags/options can be added here
-$(combo_2nd_arch_prefix)TARGET_RELEASE_CFLAGS := \
-			-O3 \
-			-DNDEBUG \
-                        -pipe \
-			-g \
-			-Wstrict-aliasing=2 \
-			-fgcse-after-reload \
-			-frerun-cse-after-loop \
-			-frename-registers \
-			-fno-ipa-cp-clone \
-			-fno-vect-cost-model \
-			-Wno-error=unused-parameter \
-			-Wno-error=unused-but-set-variable \
-			-fno-strict-aliasing \
-			-funsafe-loop-optimizations \
-			-fsection-anchors \
-			-fivopts \
-			-ftree-loop-im \
-			-ftree-loop-ivcanon \
-			-ffunction-sections \
-			-fdata-sections \
-			-funswitch-loops \
-			-fomit-frame-pointer \
-			-fgcse-sm \
-			-fgcse-las \
-			-fweb \
-			-ftracer \
-			-Wno-error=maybe-uninitialized
+$(combo_2nd_arch_prefix)TARGET_RELEASE_CFLAGS := -O3 -DNDEBUG -pipe -g -Wstrict-aliasing=2 -frerun-cse-after-loop -frename-registers -fno-strict-aliasing -fivopts -ffunction-sections -fdata-sections -funswitch-loops -fomit-frame-pointer -ftracer -Wno-unused-parameter -Wno-unused-but-set-variable -Wno-maybe-uninitialized $(call cc-option,$(-fira-loop-pressure,-fforce-addr,-funsafe-loop-optimizations,-funroll-loops,-ftree-loop-distribution,-fsection-anchors,-ftree-loop-im,-ftree-loop-ivcanon,-ffunction-sections,-fgcse-after-reload,-fgcse-las,-fgcse-sm,-fweb,-ffp-contract=fast,-fgraphite,-floop-flatten,-floop-parallelize-all,-ftree-loop-linear,-floop-interchange,-floop-strip-mine,-floop-block))
 
 libc_root := bionic/libc
 libm_root := bionic/libm
