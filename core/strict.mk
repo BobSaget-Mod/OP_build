@@ -14,14 +14,15 @@
 #
 
 ifdef LOCAL_CFLAGS
-LOCAL_CFLAGS += $(call cc-option, -fgraphite, -floop-flatten, -floop-parallelize-all, -ftree-loop-linear, -floop-interchange, -floop-strip-mine, -floop-block)
+LOCAL_CFLAGS += $(call cc-option, -fstrict-aliasing, -Wstrict-aliasing=3, -Werror=strict-aliasing)
 else
-LOCAL_CFLAGS := $(call cc-option, -fgraphite, -floop-flatten, -floop-parallelize-all, -ftree-loop-linear, -floop-interchange, -floop-strip-mine, -floop-block)
+LOCAL_CFLAGS := $(call cc-option, -fstrict-aliasing, -Wstrict-aliasing=3, -Werror=strict-aliasing)
 endif
 
 ifdef LOCAL_CPPFLAGS
-LOCAL_CPPFLAGS += $(call cpp-option, -fgraphite, -floop-flatten, -floop-parallelize-all, -ftree-loop-linear, -floop-interchange, -floop-strip-mine, -floop-block)
+LOCAL_CPPFLAGS += $(call cpp-option, -fstrict-aliasing, -Wstrict-aliasing=3, -Werror=strict-aliasing)
 else
-LOCAL_CPPFLAGS := $(call cpp-option, -fgraphite, -floop-flatten, -floop-parallelize-all, -ftree-loop-linear, -floop-interchange, -floop-strip-mine, -floop-block)
+LOCAL_CPPFLAGS := $(call cpp-option, -fstrict-aliasing, -Wstrict-aliasing=3, -Werror=strict-aliasing)
 endif
 #####
+
