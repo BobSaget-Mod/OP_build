@@ -14,7 +14,47 @@
 #
 
 LOCAL_DISABLE_STRICT := \
-	libc_bionic
+        libc_bionic \
+        libc_dns \
+        libc_tzcode \
+        libziparchive \
+        busybox \
+        libuclibcrpc \
+        libtwrpmtp \
+        libfusetwrp \
+        libguitwrp \
+        libziparchive-host \
+        libpdfiumcore \
+        libandroid_runtime \
+        libmedia \
+        libpdfiumcore \
+        libpdfium \
+        bluetooth.default \
+        logd \
+        mdnsd \
+        net_net_gyp \
+        libstagefright_webm \
+        libaudioflinger \
+        libmediaplayerservice \
+        libstagefright \
+        ping6 \
+        libdiskconfig \
+        libjavacore \
+        libfdlibm \
+        libvariablespeed \
+        librtp_jni \
+        libwilhelm \
+        libdownmix \
+        libldnhncr \
+        libqcomvisualizer \
+        libvisualizer \
+        content_content_renderer_gyp \
+        third_party_WebKit_Source_modules_modules_gyp \
+        third_party_WebKit_Source_platform_blink_platform_gyp \
+        third_party_WebKit_Source_core_webcore_remaining_gyp \
+        third_party_angle_src_translator_lib_gyp \
+        third_party_WebKit_Source_core_webcore_generated_gyp
+
 
 ifneq (1,$(words $(filter $(LOCAL_DISABLE_STRICT), $(LOCAL_MODULE))))
 ifndef LOCAL_CONLYFLAGS
@@ -42,4 +82,3 @@ LOCAL_CPPFLAGS := \
 endif
 endif
 #####
-

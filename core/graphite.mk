@@ -22,7 +22,9 @@ LOCAL_DISABLE_GRAPHITE := \
 	libmedia_jni \
 	libstagefright_mp3dec \
 	libart \
-	libstagefright_amrwbenc
+	libstagefright_amrwbenc \
+	libpdfium \
+	libpdfiumcore
 
 ifneq (1,$(words $(filter $(LOCAL_DISABLE_GRAPHITE), $(LOCAL_MODULE))))
 ifdef LOCAL_CONLYFLAGS
