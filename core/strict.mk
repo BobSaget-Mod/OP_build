@@ -13,16 +13,28 @@
 # limitations under the License.
 #
 
-ifdef LOCAL_CFLAGS
-LOCAL_CFLAGS += $(call cc-option, -fstrict-aliasing, -Wstrict-aliasing=3, -Werror=strict-aliasing)
+ifndef LOCAL_CONLYFLAGS
+LOCAL_CONLYFLAGS += \
+	-fstrict-aliasing \
+	$(call cc-option,-Wstrict-aliasing=3) \
+	-Werror=strict-aliasing
 else
-LOCAL_CFLAGS := $(call cc-option, -fstrict-aliasing, -Wstrict-aliasing=3, -Werror=strict-aliasing)
+LOCAL_CONLYFLAGS := \
+	-fstrict-aliasing \
+	$(call cc-option,-Wstrict-aliasing=3) \
+	-Werror=strict-aliasing
 endif
 
 ifdef LOCAL_CPPFLAGS
-LOCAL_CPPFLAGS += $(call cpp-option, -fstrict-aliasing, -Wstrict-aliasing=3, -Werror=strict-aliasing)
+LOCAL_CPPFLAGS += \
+	-fstrict-aliasing \
+	$(call cpp-option,-Wstrict-aliasing=3) \
+	-Werror=strict-aliasing
 else
-LOCAL_CPPFLAGS := $(call cpp-option, -fstrict-aliasing, -Wstrict-aliasing=3, -Werror=strict-aliasing)
+LOCAL_CPPFLAGS := \
+	-fstrict-aliasing \
+	$(call cpp-option,-Wstrict-aliasing=3) \
+	-Werror=strict-aliasing
 endif
 #####
 
