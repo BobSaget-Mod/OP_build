@@ -13,6 +13,10 @@
 # limitations under the License.
 #
 
+LOCAL_DISABLE_STRICT := \
+	libc_bionic
+
+ifneq (1,$(words $(filter $(LOCAL_DISABLE_STRICT), $(LOCAL_MODULE))))
 ifndef LOCAL_CONLYFLAGS
 LOCAL_CONLYFLAGS += \
 	-fstrict-aliasing \
@@ -35,6 +39,7 @@ LOCAL_CPPFLAGS := \
 	-fstrict-aliasing \
 	$(call cpp-option,-Wstrict-aliasing=3) \
 	-Werror=strict-aliasing
+endif
 endif
 #####
 
