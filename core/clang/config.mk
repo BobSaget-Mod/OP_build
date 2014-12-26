@@ -32,12 +32,20 @@ endif
 # Clang flags for all host or target rules
 CLANG_CONFIG_EXTRA_ASFLAGS :=
 CLANG_CONFIG_EXTRA_CFLAGS :=
+ifeq ($(USE_O3_OPTIMIZATIONS),true)
 CLANG_CONFIG_EXTRA_CPPFLAGS := -O3 -Qunused-arguments -Wno-unknown-warning-option -D__compiler_offsetof=__builtin_offsetof
+else
+CLANG_CONFIG_EXTRA_CPPFLAGS :=
+endif
 CLANG_CONFIG_EXTRA_LDFLAGS :=
 
+ifeq ($(USE_O3_OPTIMIZATIONS),true)
 CLANG_CONFIG_EXTRA_CFLAGS += \
   -O3 -Qunused-arguments -Wno-unknown-warning-option -D__compiler_offsetof=__builtin_offsetof
-
+else
+CLANG_CONFIG_EXTRA_CFLAGS += \
+  -D__compiler_offsetof=__builtin_offsetof
+endif
 # Help catch common 32/64-bit errors.
 CLANG_CONFIG_EXTRA_CFLAGS += \
   -Werror=int-conversion
@@ -52,29 +60,7 @@ CLANG_CONFIG_UNKNOWN_CFLAGS := \
   -Wmaybe-uninitialized \
   -Wno-maybe-uninitialized \
   -Wno-error=maybe-uninitialized \
-  -fno-canonical-system-headers \
-  -mthumb-interwork \
-  -fgcse-after-reload \
-  -frerun-cse-after-loop \
-  -frename-registers \
-  -fno-align-jumps \
-  -fno-builtin-sin \
-  -fno-caller-saves \
-  -fno-early-inlining \
-  -fno-move-loop-invariants \
-  -fno-partial-inlining \
-  -fno-strict-volatile-bitfields \
-  -fno-tree-copy-prop \
-  -fno-tree-loop-optimize \
-  -funsafe-loop-optimizations \
-  -fno-vect-cost-model \
-  -fno-ipa-cp-clone \
-  -fsection-anchors \
-  -ftree-loop-im \
-  -ftree-loop-ivcanon \
-  -fgcse-sm \
-  -fgcse-las \
-  -fweb
+  -fno-canonical-system-headers
 
 # Clang flags for all host rules
 CLANG_CONFIG_HOST_EXTRA_ASFLAGS :=
