@@ -18,6 +18,9 @@ LOCAL_DISABLE_STRICT := \
 	libc_dns \
 	libc_tzcode \
 	libziparchive \
+	libtwrpmtp \
+	libfusetwrp \
+	libguitwrp \
 	busybox \
 	libuclibcrpc \
 	libziparchive-host \
