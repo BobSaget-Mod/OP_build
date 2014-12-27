@@ -65,25 +65,32 @@ ifneq (1,$(words $(filter $(LOCAL_DISABLE_STRICT), $(LOCAL_MODULE))))
 ifndef LOCAL_CONLYFLAGS
 LOCAL_CONLYFLAGS += \
 	-fstrict-aliasing \
-	$(call cc-option,-Wstrict-aliasing=3) \
 	-Werror=strict-aliasing
 else
 LOCAL_CONLYFLAGS := \
 	-fstrict-aliasing \
-	$(call cc-option,-Wstrict-aliasing=3) \
 	-Werror=strict-aliasing
 endif
 
 ifdef LOCAL_CPPFLAGS
 LOCAL_CPPFLAGS += \
 	-fstrict-aliasing \
-	$(call cpp-option,-Wstrict-aliasing=3) \
 	-Werror=strict-aliasing
 else
 LOCAL_CPPFLAGS := \
 	-fstrict-aliasing \
-	$(call cpp-option,-Wstrict-aliasing=3) \
 	-Werror=strict-aliasing
+endif
+ifndef LOCAL_CLANG
+LOCAL_CONLYFLAGS += \
+	-Wstrict-aliasing=3
+LOCAL_CPPFLAGS += \
+	-Wstrict-aliasing=3
+else
+LOCAL_CONLYFLAGS += \
+	-Wstrict-aliasing=2
+LOCAL_CPPFLAGS += \
+	-Wstrict-aliasing=2
 endif
 endif
 #####
