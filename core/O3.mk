@@ -22,7 +22,6 @@ LOCAL_CONLYFLAGS += -O2 \
 	-funswitch-loops \
 	-fpredictive-commoning \
 	-fgcse-after-reload \
-	-ftree-loop-vectorize \
 	-ftree-loop-distribute-patterns \
 	-ftree-slp-vectorize \
 	-fvect-cost-model \
@@ -34,7 +33,6 @@ LOCAL_CONLYFLAGS := -O2 \
 	-funswitch-loops \
 	-fpredictive-commoning \
 	-fgcse-after-reload \
-	-ftree-loop-vectorize \
 	-ftree-loop-distribute-patterns \
 	-ftree-slp-vectorize \
 	-fvect-cost-model \
@@ -48,7 +46,6 @@ LOCAL_CPPFLAGS += -O2 \
 	-funswitch-loops \
 	-fpredictive-commoning \
 	-fgcse-after-reload \
-	-ftree-loop-vectorize \
 	-ftree-loop-distribute-patterns \
 	-ftree-slp-vectorize \
 	-fvect-cost-model \
@@ -60,7 +57,6 @@ LOCAL_CPPFLAGS := -O2 \
 	-funswitch-loops \
 	-fpredictive-commoning \
 	-fgcse-after-reload \
-	-ftree-loop-vectorize \
 	-ftree-loop-distribute-patterns \
 	-ftree-slp-vectorize \
 	-fvect-cost-model \
