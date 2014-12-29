@@ -13,7 +13,9 @@
 # limitations under the License.
 #
 
-LOCAL_DISABLE_O3 :=
+LOCAL_DISABLE_O3 := \
+	libziparchive \
+	libziparchive-host
 
 ifneq (1,$(words $(filter $(LOCAL_DISABLE_O3), $(LOCAL_MODULE))))
 ifndef LOCAL_CONLYFLAGS
