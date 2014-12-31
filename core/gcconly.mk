@@ -13,7 +13,8 @@
 # limitations under the License.
 #
 
-LOCAL_DISABLE_GCCONLY := 
+LOCAL_DISABLE_GCCONLY := \
+	bluetooth.default
 
 ifneq (1,$(words $(filter $(LOCAL_DISABLE_GCCONLY), $(LOCAL_MODULE))))
 ifndef LOCAL_CONLYFLAGS
