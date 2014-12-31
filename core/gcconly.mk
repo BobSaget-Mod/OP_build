@@ -29,7 +29,8 @@ LOCAL_CONLYFLAGS += -fira-loop-pressure \
 	-fgcse-las \
 	-fgcse-sm \
 	-fweb \
-	-ffp-contract=fast
+	-ffp-contract=fast \
+	-mvectorize-with-neon-quad
 else
 LOCAL_CONLYFLAGS := -fira-loop-pressure \
 	-fforce-addr \
@@ -43,7 +44,8 @@ LOCAL_CONLYFLAGS := -fira-loop-pressure \
 	-fgcse-las \
 	-fgcse-sm \
 	-fweb \
-	-ffp-contract=fast
+	-ffp-contract=fast \
+	-mvectorize-with-neon-quad
 endif
 
 ifdef LOCAL_CPPFLAGS
@@ -59,7 +61,8 @@ LOCAL_CPPFLAGS += -fira-loop-pressure \
 	-fgcse-las \
 	-fgcse-sm \
 	-fweb \
-	-ffp-contract=fast
+	-ffp-contract=fast \
+	-mvectorize-with-neon-quad
 else
 LOCAL_CPPFLAGS := -fira-loop-pressure \
 	-fforce-addr \
@@ -73,7 +76,8 @@ LOCAL_CPPFLAGS := -fira-loop-pressure \
 	-fgcse-las \
 	-fgcse-sm \
 	-fweb \
-	-ffp-contract=fast
+	-ffp-contract=fast \
+	-mvectorize-with-neon-quad
 endif
 endif
 #####
