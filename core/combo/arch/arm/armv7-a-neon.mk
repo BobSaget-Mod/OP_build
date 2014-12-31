@@ -10,7 +10,7 @@ ifneq (,$(filter cortex-a15 krait denver,$(TARGET_$(combo_2nd_arch_prefix)CPU_VA
 	# TODO: krait is not a cortex-a15, we set the variant to cortex-a15 so that
 	#       hardware divide operations are generated. This should be removed and a
 	#       krait CPU variant added to GCC/clang.
-	arch_variant_cflags := -mcpu=cortex-a15 -mfpu=neon-vfpv4 -mfloat-abi=hard
+	arch_variant_cflags := -mcpu=cortex-a15 -mfpu=neon-vfpv4 -mfloat-abi=softfp
 
 	# Fake ARM compiler flags as these processors support LPAE and VFP4 which GCC/clang
 	# doesn't advertise.
