@@ -133,7 +133,9 @@ endif
 endif
 
 ifeq ($(KRAIT_TUNINGS),true)
+ifndef LOCAL_IS_HOST_MODULE
 include $(BUILD_SYSTEM)/krait.mk
+endif
 endif
 
 ifeq ($(ENABLE_GCCONLY),true)
