@@ -21,6 +21,9 @@ LOCAL_DISABLE_O3 := \
 	libstagefright_webm \
 	libjavacore \
 	net_net_gyp \
+	libwebviewchromium \
+	libwebviewchromium_loader \
+	libwebviewchromium_plat_support \
 	content_content_renderer_gyp \
 	third_party_WebKit_Source_modules_modules_gyp \
 	third_party_WebKit_Source_platform_blink_platform_gyp \
