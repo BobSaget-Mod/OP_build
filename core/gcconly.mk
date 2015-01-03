@@ -14,7 +14,10 @@
 #
 
 LOCAL_DISABLE_GCCONLY := \
-	bluetooth.default
+	bluetooth.default \
+	libwebviewchromium \
+	libwebviewchromium_loader \
+	libwebviewchromium_plat_support
 
 ifneq (1,$(words $(filter $(LOCAL_DISABLE_GCCONLY), $(LOCAL_MODULE))))
 ifndef LOCAL_CONLYFLAGS
