@@ -24,7 +24,10 @@ LOCAL_DISABLE_GRAPHITE := \
 	libart \
 	libstagefright_amrwbenc \
 	libpdfium \
-	libpdfiumcore
+	libpdfiumcore \
+	libwebviewchromium \
+	libwebviewchromium_loader \
+	libwebviewchromium_plat_support
 
 ifneq (1,$(words $(filter $(LOCAL_DISABLE_GRAPHITE), $(LOCAL_MODULE))))
 ifdef LOCAL_CONLYFLAGS
