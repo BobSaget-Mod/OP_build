@@ -97,7 +97,7 @@ else
   endif
 endif
 
-# Copyright (C) 2014 The SaberMod Project
+# Copyright (C) 2015 The SaberMod Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -112,14 +112,6 @@ endif
 # limitations under the License.
 #
 # Include custom gcc flags.  Seperate them so they can be easily managed.
-ifeq ($(GRAPHITE_OPTS),true)
-ifndef LOCAL_IS_HOST_MODULE
-ifeq ($(LOCAL_CLANG),)
-include $(BUILD_SYSTEM)/graphite.mk
-endif
-endif
-endif
-
 ifeq ($(STRICT_ALIASING),true)
 include $(BUILD_SYSTEM)/strict.mk
 endif
@@ -142,6 +134,14 @@ ifeq ($(ENABLE_GCCONLY),true)
 ifndef LOCAL_IS_HOST_MODULE
 ifeq ($(LOCAL_CLANG),)
 include $(BUILD_SYSTEM)/gcconly.mk
+endif
+endif
+endif
+
+ifeq ($(GRAPHITE_OPTS),true)
+ifndef LOCAL_IS_HOST_MODULE
+ifeq ($(LOCAL_CLANG),)
+include $(BUILD_SYSTEM)/graphite.mk
 endif
 endif
 endif
