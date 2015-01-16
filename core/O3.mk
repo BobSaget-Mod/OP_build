@@ -42,7 +42,10 @@ LOCAL_CONLYFLAGS += -O2 \
 	-ftree-slp-vectorize \
 	-fvect-cost-model \
 	-ftree-partial-pre \
-	-fipa-cp-clone
+	-fipa-cp-clone \
+	-Wno-unused-parameter \
+	-Wno-unused-but-set-variable \
+	-Wno-maybe-uninitialized
 else
 LOCAL_CONLYFLAGS := -O2 \
 	-finline-functions \
@@ -53,7 +56,10 @@ LOCAL_CONLYFLAGS := -O2 \
 	-ftree-slp-vectorize \
 	-fvect-cost-model \
 	-ftree-partial-pre \
-	-fipa-cp-clone
+	-fipa-cp-clone \
+	-Wno-unused-parameter \
+	-Wno-unused-but-set-variable \
+	-Wno-maybe-uninitialized
 endif
 
 ifdef LOCAL_CPPFLAGS
@@ -66,7 +72,10 @@ LOCAL_CPPFLAGS += -O2 \
 	-ftree-slp-vectorize \
 	-fvect-cost-model \
 	-ftree-partial-pre \
-	-fipa-cp-clone
+	-fipa-cp-clone \
+	-Wno-unused-parameter \
+	-Wno-unused-but-set-variable \
+	-Wno-maybe-uninitialized
 else
 LOCAL_CPPFLAGS := -O2 \
 	-finline-functions \
@@ -77,7 +86,10 @@ LOCAL_CPPFLAGS := -O2 \
 	-ftree-slp-vectorize \
 	-fvect-cost-model \
 	-ftree-partial-pre \
-	-fipa-cp-clone
+	-fipa-cp-clone \
+	-Wno-unused-parameter \
+	-Wno-unused-but-set-variable \
+	-Wno-maybe-uninitialized
 endif
 endif
 #####
