@@ -28,7 +28,7 @@ CLANG_CONFIG_arm_UNKNOWN_CFLAGS := \
   -fno-builtin-sin \
   -fno-strict-volatile-bitfields \
   -fno-align-jumps \
-  -Wa,--noexecstack
+  -Wa,--noexecstack \
   -Wno-unused-local-typedefs
 
 define subst-clang-incompatible-arm-flags
