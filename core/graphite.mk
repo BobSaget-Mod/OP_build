@@ -27,7 +27,9 @@ LOCAL_DISABLE_GRAPHITE := \
 	libpdfiumcore \
 	libwebviewchromium \
 	libwebviewchromium_loader \
-	libwebviewchromium_plat_support
+	libwebviewchromium_plat_support \
+	libjni_filtershow_filters \
+	fio
 
 ifneq (1,$(words $(filter $(LOCAL_DISABLE_GRAPHITE), $(LOCAL_MODULE))))
 ifdef LOCAL_CONLYFLAGS
